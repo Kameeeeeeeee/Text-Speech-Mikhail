@@ -11,6 +11,8 @@ import config
 import markups as nav
 import tts as t2os
 
+from background import keep_alive
+
 logging.basicConfig(level=logging.INFO)
 
 storage = MemoryStorage()
@@ -89,6 +91,9 @@ async def mh(message: types.Message, state: FSMContext):
 
     else:
         await message.answer(config.messages['error'], reply_markup=nav.change_menu)
+
+
+keep_alive()
 
 
 if __name__ == '__main__':
